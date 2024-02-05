@@ -4,3 +4,6 @@
 [submodule "dep/getopt"]
 	path = dep/getopt
 	url = https://github.com/jingyu/getopt.git
+[submodule "dep/inih"]
+	path = dep/inih
+	url = https://github.com/benhoyt/inih.git
