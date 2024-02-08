@@ -125,6 +125,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\dep\inih\cpp\INIReader.cpp" />
+    <ClCompile Include="..\..\dep\inih\ini.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\dep\inih\cpp\INIReader.h" />
+    <ClInclude Include="..\..\dep\inih\ini.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
