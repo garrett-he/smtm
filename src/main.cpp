@@ -16,6 +16,14 @@
  */
 
 #include <stdio.h>
+#include "getopt.h"
+
+#define OPTS_SHORT_STRING "h"
+
+static const struct option opt_define[] = {
+    { "help", no_argument, NULL, 'h' },
+    { NULL, 0, NULL, 0 }
+};
 
 static void display_help(FILE* fp) {
     fprintf(fp, "usage: smtm [FILE]\n");
@@ -27,6 +35,19 @@ int main(int argc, char** argv) {
         display_help(stderr);
         return -1;
     }
+
+    do {
+        optopt = getopt_long(argc, argv, OPTS_SHORT_STRING, opt_define, &optind);
+
+        switch (optopt) {
+        case 'h':
+            display_help(stdout);
+            return 0;
+        default:
+            /* You won't actually get here */
+            break;
+        }
+    } while (optopt != -1);
 
     return 0;
 }
