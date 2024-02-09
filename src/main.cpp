@@ -15,6 +15,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <stdio.h>
+
+static void display_help(FILE* fp) {
+    fprintf(fp, "usage: smtm [FILE]\n");
+    fprintf(fp, "Lua engine to let you run scripts to cheat/mod in games.\n");
+}
+
 int main(int argc, char** argv) {
+    if (argc < 2) {
+        display_help(stderr);
+        return -1;
+    }
+
     return 0;
 }
