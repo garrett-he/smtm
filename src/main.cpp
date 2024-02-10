@@ -15,8 +15,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <Windows.h>
 #include <stdio.h>
 #include "getopt.h"
+#include "inih.h"
+#include "logging.h"
 
 #define OPTS_SHORT_STRING "h"
 
@@ -31,10 +34,21 @@ static void display_help(FILE* fp) {
 }
 
 int main(int argc, char** argv) {
+    std::string execName;
+    std::string baseDir;
+    smtm::Logger* logger;
+    TCHAR path[MAX_PATH];
+    INIReader* configReader;
+
     if (argc < 2) {
         display_help(stderr);
         return -1;
     }
+
+    struct {
+        std::string LogDir;
+        smtm::LogLevel LogLevel;
+    } config;
 
     do {
         optopt = getopt_long(argc, argv, OPTS_SHORT_STRING, opt_define, &optind);
@@ -48,6 +62,24 @@ int main(int argc, char** argv) {
             break;
         }
     } while (optopt != -1);
+
+    if (!::GetModuleFileName(NULL, path, MAX_PATH)) {
+        throw std::exception("Cannot get filename of smtm.");
+    }
+
+    execName = std::string(path);
+    baseDir = execName.substr(0, execName.find_last_of('\\'));
+
+    configReader = new INIReader(baseDir + "\\smtm.ini");
+
+    config.LogDir = configReader->Get("smtm", "log_dir", baseDir);
+    config.LogLevel = smtm::LogLevel(configReader->GetInteger("smtm", "log_level", smtm::llInfo));
+
+    delete configReader;
+
+    logger = new smtm::Logger(config.LogDir + "\\smtm.log", config.LogLevel);
+
+    delete logger;
 
     return 0;
 }
