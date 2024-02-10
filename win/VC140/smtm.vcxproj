@@ -140,6 +140,9 @@
     <ClInclude Include="..\..\src\lua.h" />
     <ClInclude Include="..\..\src\lua_engine.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\smtm_default.ini" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
