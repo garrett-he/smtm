@@ -158,7 +158,6 @@
     <ClCompile Include="..\..\dep\lua\lutf8lib.c" />
     <ClCompile Include="..\..\dep\lua\lvm.c" />
     <ClCompile Include="..\..\dep\lua\lzio.c" />
-    <ClCompile Include="..\..\dep\lua\onelua.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dep\lua\lapi.h" />

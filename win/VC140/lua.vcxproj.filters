@@ -114,9 +114,6 @@
     <ClCompile Include="..\..\dep\lua\lzio.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\dep\lua\onelua.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dep\lua\lapi.h">
