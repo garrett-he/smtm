@@ -15,31 +15,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <exception>
-#include "lua_engine.h"
-#include "lwinlib.h"
+#ifndef __LSMTMLIB_H__
+#define __LSMTMLIB_H__
 
-using namespace smtm;
+#define SMTM_VERSION "1.0.0"
 
-LuaEngine::LuaEngine(void) {
-    if (!(L = luaL_newstate())) {
-        throw std::exception("lua state memory allocation error.");
-    }
+#include "lua.h"
 
-    luaL_openlibs(L);
-    luaopen_win(L);
-}
+LUAMOD_API int (luaopen_smtm)(lua_State* L);
 
-LuaEngine::~LuaEngine(void) {
-    lua_close(L);
-}
+void luaconst_smtm(lua_State* L);
 
-void LuaEngine::RunScript(const std::string filename) {
-    if (luaL_loadfile(L, filename.c_str())) {
-        throw std::exception(lua_tostring(L, -1));
-    }
-
-    if (lua_pcall(L, 0, 0, 0)) {
-        throw std::exception(lua_tostring(L, -1));
-    }
-}
+#endif // __LSMTMLIB_H__

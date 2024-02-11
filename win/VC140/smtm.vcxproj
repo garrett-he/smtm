@@ -130,15 +130,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\logging.cpp" />
+    <ClCompile Include="..\..\src\lsmtmlib.cpp" />
     <ClCompile Include="..\..\src\lua_engine.cpp" />
+    <ClCompile Include="..\..\src\lwinlib.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\getopt.h" />
     <ClInclude Include="..\..\src\inih.h" />
     <ClInclude Include="..\..\src\logging.h" />
+    <ClInclude Include="..\..\src\lsmtmlib.h" />
     <ClInclude Include="..\..\src\lua.h" />
     <ClInclude Include="..\..\src\lua_engine.h" />
+    <ClInclude Include="..\..\src\lwinlib.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\smtm_default.ini" />

@@ -15,31 +15,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <exception>
-#include "lua_engine.h"
-#include "lwinlib.h"
+#ifndef __LWINLIB_H__
+#define __LWINLIB_H__
 
-using namespace smtm;
+#include "lua.h"
 
-LuaEngine::LuaEngine(void) {
-    if (!(L = luaL_newstate())) {
-        throw std::exception("lua state memory allocation error.");
-    }
+LUAMOD_API int luaopen_win(lua_State* L);
 
-    luaL_openlibs(L);
-    luaopen_win(L);
-}
+void luaconst_win(lua_State* L);
 
-LuaEngine::~LuaEngine(void) {
-    lua_close(L);
-}
-
-void LuaEngine::RunScript(const std::string filename) {
-    if (luaL_loadfile(L, filename.c_str())) {
-        throw std::exception(lua_tostring(L, -1));
-    }
-
-    if (lua_pcall(L, 0, 0, 0)) {
-        throw std::exception(lua_tostring(L, -1));
-    }
-}
+#endif // __LWINLIB_H__
