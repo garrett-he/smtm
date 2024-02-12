@@ -1,5 +1,4 @@
 #include <Windows.h>
-#include "lua.h"
 #include "lwinlib.h"
 
 static int win_FindWindow(lua_State* L) {

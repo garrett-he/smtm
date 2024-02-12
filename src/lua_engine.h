@@ -2,7 +2,7 @@
 #define __LUA_ENGINE_H__
 
 #include <string>
-#include "lua.h"
+#include <lua.hpp>
 
 namespace smtm {
     class LuaEngine {

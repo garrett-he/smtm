@@ -1,7 +1,7 @@
 #ifndef __LWINLIB_H__
 #define __LWINLIB_H__
 
-#include "lua.h"
+#include <lua.hpp>
 
 LUAMOD_API int luaopen_win(lua_State* L);
 

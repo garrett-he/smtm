@@ -1,0 +1,7 @@
+[requires]
+inih/56
+lua/5.3.6
+
+[generators]
+CMakeDeps
+CMakeToolchain

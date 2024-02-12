@@ -1,5 +1,4 @@
 #include <string.h>
-#include "lua.h"
 #include "lsmtmlib.h"
 
 void luaconst_smtm(lua_State* L) {

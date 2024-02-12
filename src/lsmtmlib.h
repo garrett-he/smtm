@@ -3,7 +3,7 @@
 
 #define SMTM_VERSION "1.0.0"
 
-#include "lua.h"
+#include <lua.hpp>
 
 LUAMOD_API int (luaopen_smtm)(lua_State* L);
 

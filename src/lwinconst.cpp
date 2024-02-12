@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "lua.h"
+#include <lua.hpp>
 #include "lwinlib.h"
 
 void luaconst_win(lua_State* L) {

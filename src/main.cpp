@@ -1,9 +1,12 @@
 #include <Windows.h>
 #include <stdio.h>
-#include "getopt.h"
-#include "inih.h"
+#include <INIReader.h>
 #include "logging.h"
 #include "lua_engine.h"
+
+extern "C" {
+#include "../deps/getopt/getopt.h"
+}
 
 #define OPTS_SHORT_STRING "h"
 
